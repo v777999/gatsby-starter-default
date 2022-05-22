@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import { disableReactDevTools } from '@fvilers/disable-react-devtools';
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -69,7 +70,12 @@ const moreLinks = [
 
 const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
 
+if (process.env.NODE_ENV === 'production') {
+	disableReactDevTools();
+}
+
 const IndexPage = () => (
+
   <Layout>
     <Seo title="Home" />
     <div className={styles.textCenter}>
